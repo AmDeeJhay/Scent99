@@ -35,7 +35,7 @@ const Brand = () => {
 
     return (
         <div className="lg:container mx-auto">
-            <div className="grid grid-cols-7 items-center justify-center gap-5">
+            <div className="grid grid-cols-7 items-center gap-5 px-4">
                 {
                     brands?.map((brand) => (
                         <div key={brand?.id} className="brand_item">
