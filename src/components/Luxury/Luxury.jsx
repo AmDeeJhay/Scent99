@@ -2,7 +2,7 @@ import { Package, MapPin, LocateFixed } from "lucide-react";
 
 const DeliveryInfo = () => {
     return (
-        <div className="w-full bg-[#fcf8ff] py-12 px-4 lg:px-0 text-center">
+        <div className="w-full bg-[#fff] py-12 px-4 lg:px-0 text-center -mt-18 mb-8">
             <h2 className="text-3xl text-[#272343] font-arapey font-medium mb-4">
                 Luxury, Delivered to Your Door
             </h2>
