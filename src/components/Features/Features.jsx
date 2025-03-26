@@ -1,103 +1,88 @@
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { ShoppingCart } from "lucide-react";
 import SectionTitle from "../SectionTitle/SectionTitle";
 
 const Features = () => {
   const features = [
     {
-      title: 'library stool',
-    //   status: 'New',
-    //   price: '$250',
-      image: '/src/assets/features/product_1.png',
-    //   currentPrice: '$200',
+      title: "Woody",
+      description: "Warm, earthy and sophisticated. Perfect for those who love the scent of nature and the outdoors.",
+      image: "/src/assets/features/product_1.png",
     },
     {
-      title: 'library stool Chair',
-    //   status: 'Sales',
-    //   price: '$250',
-      image: '/src/assets/features/product_2.png',
+      title: "Floral",
+      description: "Delicate blooms and romantic bouquets. Ideal for those who appreciate the beauty of flowers.",
+      image: "/src/assets/features/product_2.png",
     },
     {
-      title: 'library stool Chair',
-    //   price: '$250',
-      image: '/src/assets/features/product_3.png',
+      title: "Oriental",
+      description: "Rich, sensual and exotic blends. A great choice for those who enjoy bold and captivating scents.",
+      image: "/src/assets/features/product_3.png",
     },
     {
-      title: 'library stool Chair',
-    //   status: 'New',
-    //   price: '$250',
-      image: '/src/assets/features/product_4.png',
-    //   currentPrice: '$200',
+      title: "Fresh",
+      description: "Crisp, clean and energizing. Perfect for those who love a refreshing and invigorating fragrance.",
+      image: "/src/assets/features/product_4.png",
     },
-    {
-        title: 'library stool',
-      //   status: 'New',
-      //   price: '$250',
-        image: '/src/assets/features/product_1.png',
-      //   currentPrice: '$200',
-      },
-      {
-        title: 'library stool Chair',
-      //   status: 'Sales',
-      //   price: '$250',
-        image: '/src/assets/features/product_2.png',
-      },
-      {
-        title: 'library stool Chair',
-      //   price: '$250',
-        image: '/src/assets/features/product_3.png',
-      },
-      {
-        title: 'library stool Chair',
-      //   status: 'New',
-      //   price: '$250',
-        image: '/src/assets/features/product_4.png',
-      //   currentPrice: '$200',
-      },
   ];
 
   const settings = {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
-    slidesToScroll: 2,
+    slidesToShow: 2,
+    slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
+    arrows: true,
   };
 
   return (
-    <div className="features-section bg-gray-100 py-10">
-      <div className="lg:container mx-auto">
-        <SectionTitle title="Fragrance families" mb="mb-5" />
-        <div className="slider-container features_slider w-full h-full">
-        <Slider {...settings}>
-          {features?.map((feature, index) => (
-            <div key={index} className="p-4">
-              <div className="feature_image mb-4 relative px-20">
-                <img className="w-full h-full object-cover grid grid-row-4" src={feature?.image} alt={feature?.title} />
-                {feature?.status && (
-                  <div className="absolute top-4 left-4 bg-[#007580] text-white px-2 py-1 rounded-lg">
-                    <button className="text-sm font-inter font-normal">{feature?.status}</button>
-                  </div>
-                )}
-              </div>
-              <div className="feature_content">
-                <div className="flex items-center justify-between">
-                  <h4 className="text-base text-[#007580] capitalize font-inter font-normal mb-4">{feature?.title}</h4>
+    <div className="features-section bg-[#e6e1f9] py-10">
+      <SectionTitle title="Fragrance Families" mb="-mb-30" />
+      <div className="container mx-auto px-20">
+        <div className="grid grid-cols-2 gap-10 items-center">
+          {/* Left Section - Description */}
+          <div className="text-left max-w-lg -ml-21">
+            <h2 className="text-medium font-semibold font-poppins text-gray-800 ">Discover fragrance families</h2>
+            <p className="text-black text-sm font-normal text-justify font-poppins">
+            Fragrance families help categorize scents into distinct groups, making it easier to find a scent that suits you. 
+              From the deep, earthy notes of woody fragrances to the light, fresh citrusy blends, each family evokes unique emotions 
+              and memories. Explore the essence of each category and discover your signature scent. 
+            </p>
+          </div>
+
+          {/* Right Section - Image Grid */}
+          <div className="slider-container features_slider w-full h-full">
+            <Slider {...settings}>
+              {[0, 2].map((index) => (
+                <div key={index} className="grid grid-cols-1 gap-24 justify-center items-center">
+                  {[features[index], features[index + 1]].map((feature, subIndex) => (
+                    <div
+                      key={subIndex}
+                      className={`relative w-[250px] h-full rounded-lg overflow-hidden flex justify-center items-end ${
+                        subIndex % 2 === 0 ? "mt-0" : "mt-5"
+                      }`}
+                    >
+                      {/* Image */}
+                      <img
+                        className="w-full h-full object-contain"
+                        src={feature.image}
+                        alt={feature.title}
+                      />
+                      
+                      {/* Glassmorphism Text Overlay */}
+                      <div className="absolute bottom-0 w-full bg-glass p-2 backdrop-blur-md text-white transition-opacity duration-500 hover:opacity-100 opacity-90">
+                        <h3 className="text-lg text-black font-arapey font-semibold">{feature.title}</h3>
+                        <p className="text-sm text-[#404040]">{feature.description}</p>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <p className="text-xl flex items-center gap-2 text-[#272343] font-semibold font-inter">
-                  {feature?.price}
-                  {feature?.currentPrice && (
-                    <span className="text-sm text-[#9a9caa] font-inter font-normal">{feature?.currentPrice}</span>
-                  )}
-                </p>
-              </div>
-            </div>
-          ))}
-        </Slider>
+              ))}
+            </Slider>
+          </div>
         </div>
       </div>
     </div>

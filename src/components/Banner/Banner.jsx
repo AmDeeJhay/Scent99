@@ -11,7 +11,7 @@ const Banner = () => {
             id: 1,
             title: "Discover your Signature Scent",
             subTitle: "Explore our curated collection of premium<br />fragrances delivered to your doorstep",
-            image: "src/assets/images/banner_image.png"
+            image: "/src/assets/images/smallperf.png",
         },
         {
             id: 2,
