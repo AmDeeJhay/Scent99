@@ -30,11 +30,47 @@ const Product = () => {
             title: "best seller",
             product: 'best_seller'
         },
+        {
+            id: 4,
+            title: "Discounted",
+            product: 'discounted' 
+        },
     ];
 
 
 
     const products = [
+        {
+            title: 'Asad',
+            status: 'Discount',
+            price: '$100',
+            image: '/src/assets/features/product_1.png',
+            currentPrice: '$200',
+            product: 'discounted',
+        },
+        {
+            title: 'Creed Aventos',
+            status: 'Sales',
+            price: '$150',
+            image: '/src/assets/features/product_2.png',
+            product: 'discounted',
+        },
+        {
+            title: 'Mousuf Ayla',
+            status: 'Discount',
+            price: '$250',
+            image: '/src/assets/features/product_3.png',
+            currentPrice: '$80',
+            product: 'discounted',
+        },
+        {
+            title: 'Latafe',
+            status: 'Sales',
+            price: '$200',
+            image: '/src/assets/features/product_4.png',
+            product: 'discounted',
+        },
+
         {
             title: 'library stool',
             status: 'New',
@@ -220,7 +256,7 @@ const Product = () => {
     return (
         <div className="lg:container mx-auto">
             <div className="flex flex-col items-center justify-center">
-                <SectionTitle title={'our product'} textAlign={'center'} mb={'mb-5'}></SectionTitle>
+                <SectionTitle title={'Our Products'} textAlign={'center'} mb={'mb-5'}></SectionTitle>
 
 
                 <div className="flex items-center justify-center gap-6 mb-11">
@@ -232,7 +268,7 @@ const Product = () => {
                                     id: title?.id,
                                     product: title?.product
                                 })}
-                                className={`text-base font-black uppercase font-inter cursor-pointer ${active?.id === indx ? 'text-[#272343]' : 'text-[#9a9caa]'
+                                className={`text-sm font-medium text-black uppercase font-poppins cursor-pointer ${active?.id === indx ? 'text-[#272343]' : 'text-[#9a9caa]'
                                     }`}>
                                 {title?.title}
                             </button>
